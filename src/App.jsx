@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
-import Navbar from './components/Navbar'
+
+
 import {v4 as  uuidv4}  from 'uuid';
 function App() {
+
+
  const [todo, setTodo] = useState("")//this todo is edit todo
  const [todos, setTodos] = useState([])//this todos is an array of todo
   
@@ -71,7 +74,7 @@ function App() {
   
   return (
     <>
-    <Navbar/>
+    
       <div className="container mx-auto my-5 rounded-xl p-5 bg-violet-100 min-h-[80vh] ">
       <div className="addTodo my-5">
         <h2 className='text-lg font-bold'>Add a ToDo</h2>

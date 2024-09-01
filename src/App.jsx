@@ -7,6 +7,7 @@ function App() {
 
  const [todo, setTodo] = useState("")//this todo is edit todo
  const [todos, setTodos] = useState([])//this todos is an array of todo
+ const [showFinished, setShowFinished] = useState(true)
   
 
   useEffect(()=>{
@@ -28,6 +29,9 @@ function App() {
     }, [todos])
     
  
+  const toggleFinished= ()=>{
+  }
+
   const handleEdit = (e, id)=>{
     let t = todos.filter(i=>i.id === id)
     setTodo(t[0].todo)
@@ -38,6 +42,9 @@ function App() {
     setTodos(newTodos)
     saveToLS()
   }
+
+
+
   const handleDelete = (e, id)=>{
     // console.log(`The id is ${id}`)
     let newTodos = todos.filter(item=>{
@@ -79,9 +86,10 @@ function App() {
       <div className="addTodo my-5">
         <h2 className='text-lg font-bold'>Add a ToDo</h2>
         <input onChange={handleChange} value={todo} type="text" className='w-1/2'/>
-        <button className='bg-violet-800 p-2  py-1 hover:bg-violet-950 text-sm font-bold mx-6 text-white rounded-md'onClick={handleAdd}>Add</button>
+        <button className='bg-violet-800 p-2  py-1 hover:bg-violet-950 text-sm font-bold mx-6 text-white rounded-md disabled:bg-red-700' disabled={todo.length<= 3} onClick={handleAdd}>Save</button>
         
       </div>
+      <input type='checkbox'checked={showFinished}/> Show Finished
         <h2 className='text-lg font-bold'>
           Your ToDos
         </h2>

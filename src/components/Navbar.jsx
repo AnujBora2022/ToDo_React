@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 const Navbar = () => {
   return (
     <div>
@@ -8,8 +8,12 @@ const Navbar = () => {
         <span className='font-bold text-xl mx-8'>ToDo</span>
       </div>
       <ul className="flex gap-10 mx-8">
-        <Link to="/"><li className='cursor-pointer hover:font-bold'>Home</li></Link>
-        <Link to="/YourTasks"><li className='cursor-pointer hover:font-bold '>Your Tasks</li></Link>
+        <NavLink className={(e)=>{
+          return e.isActive?"red":""
+        }}  to="/"><li className='cursor-pointer hover:font-bold'>Home</li></NavLink>
+        <NavLink className={(e)=>{
+          return e.isActive?"red":""
+        }}  to="/YourTasks"><li className='cursor-pointer hover:font-bold '>Your Tasks</li></NavLink>
       </ul>
     </nav>
     </div>
